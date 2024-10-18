@@ -58,17 +58,18 @@ public final class MariaIO extends JavaPlugin {
         return false; // 例外が発生した場合はfalseを返す
     }
 
-    public void saveData(String table, String key, String value) {
-        String sql = "INSERT INTO ? (key_column, value_column) VALUES (?, ?)";
+    public boolean saveData(String table, String key, String value) {
+        String sql = "INSERT INTO `"+ table +"` (key_column, value_column) VALUES (?, ?)";
 
         try (Connection connection = databaseManager.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, table);
-            statement.setString(2, key);
-            statement.setString(3, value);
+            statement.setString(1, key);
+            statement.setString(2, value);
             statement.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 }

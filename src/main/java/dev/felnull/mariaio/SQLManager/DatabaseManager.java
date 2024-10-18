@@ -38,18 +38,20 @@ public class DatabaseManager {
             dataSource.close();
         }
     }
-    public void createTable(String tablename) {
+    public boolean createTable(String tablename) {
         String sql = "CREATE TABLE IF NOT EXISTS `" + tablename + "` (" +
                 "id INT AUTO_INCREMENT PRIMARY KEY, " +
                 "key_column VARCHAR(255) NOT NULL, " +
-                "value_column VARCHAR(255) NOT NULL" +
+                    "value_column VARCHAR(255) NOT NULL" +
                 ")";
 
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 }
