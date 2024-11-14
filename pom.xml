@@ -11,7 +11,7 @@
 
   <name>MariaIO</name>
 
-    <description>HikariCPを使ってMariaDBを制御する</description>
+    <description>HikariCPを使ってMariaDBに接続するだけのAPI プラグインのDB情報共有に使おう!</description>
     <properties>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

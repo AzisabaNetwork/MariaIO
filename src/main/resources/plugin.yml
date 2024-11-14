@@ -3,4 +3,4 @@ version: '${project.version}'
 main: dev.felnull.mariaio.MariaIO
 api-version: '1.16'
 authors: [Arisa9006]
-description: HikariCPを使ってMariaDBを制御する
+description: HikariCPを使ってMariaDBに接続するだけのAPI プラグインのDB情報共有に使おう!
