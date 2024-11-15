@@ -27,11 +27,9 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Collect Releases #リリースしたものを収集
-        shell: bash
         run: |
           mkdir release
-          cd release
-          cp -r ../target/*.jar ./
+          cp target/*.jar release/
           
 
       - name: Upload Artifact #アーティファクトをアップロード
